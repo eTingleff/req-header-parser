@@ -8,7 +8,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.get('/', function(req, res) {
 	var headers = req.headers;
-	var ip = req.ip;
+	var ip = req.host;
 	var lang = headers['accept-language'].split(',')[0];
 	var os = headers['user-agent'].split(/[\(\)]/)[1];
 	res.json({
