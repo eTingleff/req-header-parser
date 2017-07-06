@@ -6,9 +6,11 @@ app.disable("x-powered-by");
 
 app.set('port', process.env.PORT || 3000);
 
+app.set('trust proxy', true);
+
 app.get('/', function(req, res) {
 	var headers = req.headers;
-	var ip = req.host;
+	var ip = req.ip;
 	var lang = headers['accept-language'].split(',')[0];
 	var os = headers['user-agent'].split(/[\(\)]/)[1];
 	res.json({
